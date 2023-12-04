@@ -24,6 +24,7 @@ body {
       rgb(var(--background-end-rgb))
     )
     rgb(var(--background-start-rgb));
+  background-attachment: fixed;
   background-repeat: no-repeat;
 }
 
@@ -40,7 +41,7 @@ h1 {
 }
 
 .description{
-  @apply leading-[2] text-lg;
+  @apply leading-[2] text-base;
 }
 
 .header_format{
