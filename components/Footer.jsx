@@ -17,7 +17,7 @@ function Footer(){
                 </div>
             </nav> 
             <aside>
-                <p>Copyright © {new Date().getFullYear()} - All rights reserved by Silisteanu Darian</p>
+                <p className="text-center">Copyright © {new Date().getFullYear()} - All rights reserved by Silisteanu Darian</p>
             </aside>
         </footer>
     )

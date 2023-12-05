@@ -4,8 +4,6 @@ import Image from "next/image";
 import name from "../public/images/Name.png"
 import logo from "../public/images/Logo.png"
 
-// let btnPressed = true;
-
 function Header(){
     let [navChange, setNavChange] = useState(false);
 
