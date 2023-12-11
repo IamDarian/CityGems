@@ -26,14 +26,32 @@ body {
     rgb(var(--background-start-rgb));
   background-attachment: fixed;
   background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  background-image: url("../public/images/background.jpg");
+  backdrop-filter: blur(6.5px) grayscale(30%) brightness(0.75) contrast(1.1);
+  min-height: 100vh;
+}
+
+.bg_image{
+  background-position: center;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-image: url("../public/images/background.jpg");
+  height: 100vh;
 }
 
 h1 {
-  @apply mt-4 text-5xl font-extrabold leading-[1.5] text-black;
+  @apply mt-4 text-5xl font-extrabold leading-[1.5] text-slate-100 drop-shadow-2xl;
+}
+
+p{
+  @apply text-slate-100;
 }
 
 .blue_gradient {
-  @apply text-transparent bg-clip-text bg-gradient-to-r from-cyan-500 to-blue-500;
+  @apply drop-shadow-xl text-transparent bg-clip-text bg-gradient-to-r from-cyan-500 to-blue-500;
 }
 
 .title_section{
@@ -48,6 +66,114 @@ h1 {
   @apply flex bg-zinc-900 h-20;
 }
 
+.card-bg{
+  background: radial-gradient(circle at 10% 20%, rgb(69, 86, 102) 0%, rgb(34, 34, 34) 90%);
+}
+
+.loader {
+  position: relative;
+  width: 120px;
+  height: 140px;
+  background-image: radial-gradient(circle 30px, #fff 100%, transparent 0),
+  radial-gradient(circle 5px, #fff 100%, transparent 0),
+  radial-gradient(circle 5px, #fff 100%, transparent 0),
+  linear-gradient(#fff 20px, transparent 0);
+  background-position: center 127px , 94px 102px , 16px 18px, center 114px;
+  background-size: 60px 60px, 10px 10px , 10px 10px , 4px 14px;
+  background-repeat: no-repeat;
+  z-index: 10;
+  perspective: 500px;
+}
+
+.loader::before {
+  content: '';
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  border-radius:50%;
+  border: 3px solid #fff;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -55%) rotate(-45deg);
+  border-right-color: transparent;
+  box-sizing: border-box;
+}
+
+.loader::after {
+  content: '';
+  position: absolute;
+  height: 80px;
+  width: 80px;
+  transform: translate(-50%, -55%) rotate(-45deg) rotateY(0deg) ;
+  left: 50%;
+  top: 50%;
+  box-sizing: border-box;
+  border: 7px solid #4BA4EA;
+  border-radius:50%;
+  animation: rotate 0.5s linear infinite;
+}
+
+@keyframes rotate {
+to{transform: translate(-50%, -55%) rotate(-45deg) rotateY(360deg)   }
+}
+
+.loader2 {
+  position: relative;
+  width:  48px;
+  height: 48px;
+  background: #de3500;
+  transform: rotateX(65deg) rotate(45deg);
+  transform: perspective(200px) rotateX(65deg) rotate(45deg); 
+  color: #fff;
+  animation: layers1 1s linear infinite alternate;
+}
+.loader2:after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.7);
+  animation: layerTr 1s linear infinite alternate;
+}
+
+@keyframes layers1 {
+  0% { box-shadow: 0px 0px 0 0px  }
+ 90% , 100% { box-shadow: 20px 20px 0 -4px  }
+}
+@keyframes layerTr {
+  0% { transform:  translate(0, 0) scale(1) }
+  100% {  transform: translate(-25px, -25px) scale(1) }
+}
+    
+
+.icons-social-media {
+  cursor: pointer !important;
+  transition: 300ms all ease-in-out;
+  position: relative;
+}
+
+.icons-social-media:hover {
+  translate: -0px -10px;
+}
+
+#twitter,
+    #youtube,#facebook {
+  transition: 300ms all ease-in-out;
+  clip-path: circle(50%);
+  padding: 0.3rem;
+}
+
+#twitter:hover {
+  background-color: rgb(28,150,232);
+}
+
+#youtube:hover {
+  background-color: rgb(241, 96, 96);
+}
+
+#facebook:hover {
+  background-color: rgb(23,115,234);
+}
+
 .btn{
   transition: all 300ms cubic-bezier(.23, 1, 0.32, 1);
   animation-name: out;
@@ -55,8 +181,8 @@ h1 {
 }
 
 .btn:hover{
-  @apply shadow-md;
-  opacity: 0.8;
+  @apply shadow-lg shadow-cyan-500;
+  opacity: 0.85;
 }
 
 .btn:active{
@@ -72,7 +198,7 @@ h1 {
 }
 
 .hover_fade {
-  @apply bg-zinc-900 text-orange-50;
+  @apply bg-zinc-900 text-slate-100;
   transition: all 300ms cubic-bezier(.23, 1, 0.32, 1);
   animation-name: out;
   animation-duration: 0.2s;
@@ -103,4 +229,14 @@ h1 {
   .logo-name{
     display: none;
   }
+}
+
+.map_width{
+  width: 44rem;
+}
+
+@media(max-width: 716px){
+  .map_width{
+    width: 21rem;
+  } 
 }

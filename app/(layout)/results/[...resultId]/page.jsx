@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import Card from "@/components/Card";
 
 function Results({ params }){
+    const decodedParams = decodeURIComponent(params.resultId);
 
     const [geoData, setGeoData] = useState();
 
@@ -28,42 +29,18 @@ function Results({ params }){
         }
     };
 
-    const [imgData, setImgData] = useState();
-
-    useEffect(() => {
-        if (params) {
-            fetchImgData();
-        }
-        if (!params) {
-            return <p>Loading...</p>;
-          }
-    }, [params.resultId]);
-
-    const fetchImgData = async () => {
-        const url = `https://api.teleport.org/api/urban_areas/slug:paris/images/`;
-    
-        try {
-            const response = await fetch(url);
-            const res = await response.json();
-            console.log(res);
-            setImgData(objectURL);
-        } catch (error) {
-            console.error(error);
-        }
-    };
-
     return (
-        <section>
+        <main>
             <div className="flex flex-col items-center">   
                 <h1 className="text-center">Results For
-                <br/>
-                <span className="blue_gradient text-center">{params.resultId}</span>
+                    <br/>
+                    <span className="blue_gradient text-center">{decodedParams}</span>
                 </h1>  
             </div>
             <div className="flex flex-wrap justify-center gap-16">
-                {geoData ? geoData.results.map(items => <Card key={items.id} id={items.id} name={items.name} country={items.country} county={items.admin1} />) : <span className="blue_gradient">Loading...</span>}
+                {geoData && geoData.results ? geoData.results.map(items => <Card key={items.id} id={items.id} name={items.name} country={items.country} county={items.admin1} />) : <span className="loader my-36"></span>}
             </div>
-        </section>
+        </main>
     );
 }
 
