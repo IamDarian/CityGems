@@ -5,10 +5,10 @@ const savedSchema = new mongoose.Schema({
         required: true,
         type: String,
     },
-    locationName: {
-        required: true,
-        type: String,
-    },
+    // locationName: {
+    //     required: true,
+    //     type: String,
+    // },
     cityId: {
         required: true,
         type: String,
@@ -19,6 +19,6 @@ const savedSchema = new mongoose.Schema({
     }
 })
 
-const Saved = mongoose.models.Saved || mongoose.model("Saved", savedSchema);
+const CitySaved = mongoose.models.Saved || mongoose.model("Saved", savedSchema);
 
-export default Saved;
+export default CitySaved;

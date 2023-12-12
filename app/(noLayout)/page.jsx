@@ -12,6 +12,7 @@ export default function Home() {
     e.preventDefault();
     if(input.length > 0){
       const encodedInput = encodeURIComponent(input);
+      console.log(encodedInput);
       router.push (`/results/${encodedInput}`);
     }
   }

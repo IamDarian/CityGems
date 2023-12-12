@@ -42,14 +42,18 @@ export default function CityPage({ params }){
         }
     ), [])
 
+    const handleFavorites = async () => {
+        fetch(`/api/favorites/${geoData.name}/${geoData.id}`, {
+            method: "POST",
+        });
+
+        router.push("/favorites");
+    }
+
     const date = new Date().toLocaleTimeString('en-GB', {timeZone: geoData && geoData.timezone});
     const hours = date.split(":")[0];
 
     const router = useRouter();
-
-    function addFavorite(){
-        // router.push{}
-    }
     
     return(
         <main className="flex flex-col justify-center items-center">
@@ -81,7 +85,7 @@ export default function CityPage({ params }){
                     <Map latitude={geoData.latitude} longitude={geoData.longitude}/>
             </div>}
             <div>
-                <button className="btn px-3 py-2 bg-cyan-500 rounded-lg my-5 mx-2" onClick={addFavorite}>Favorite</button>
+                <button className="btn px-3 py-2 bg-cyan-500 rounded-lg my-5 mx-2" onClick={handleFavorites}>Favorite</button>
                 <a href="/"><button className="btn px-3 py-2 text-slate-50 bg-slate-800 rounded-lg my-5 mx-2">Explore Other</button></a>
             </div>
         </main>

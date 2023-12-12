@@ -14,14 +14,11 @@ async function connectDatabase(){
         await mongoose.connect(process.env.MONGODB_URI, { 
             dbName: "favorite",
             useNewUrlParser: true, 
-            useUnifiedTopology: true 
         });
         isConnected = true;
         console.log("MongoDB connected");
     } catch(error){
         console.log(error);
-    } finally{
-        await mongoose.close();    
     }
 }
   
