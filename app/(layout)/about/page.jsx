@@ -6,7 +6,7 @@ function About(){
     return(
         <section className="flex flex-col items-center my-5">
             <h1>About <span className="blue_gradient">CityGems</span></h1>
-            <div className="flex text-center flex-col md:w-2/5 my-5 py-10 px-11 shadow-lg bg-zinc-900 rounded-2xl leading-[1.8]">
+            <div className="flex text-center flex-col md:w-2/5 min-w-[700px] my-5 py-10 px-11 shadow-lg bg-zinc-900 rounded-2xl leading-[1.8]">
                 <p>Embark on a captivating journey with CityGems, your digital compass to the world's most enchanting cities. Immerse yourself in a symphony of urban landscapes as you navigate through a vast repository of destinations waiting to be discovered. Our meticulously designed platform seamlessly integrates exploration and personalization, allowing you to delve into the heart of each city, uncovering its unique allure.
                 </p>
                 <Image src={logo} className="self-center mt-5" alt="Logo image for City Gems"/>

@@ -5,10 +5,14 @@ const savedSchema = new mongoose.Schema({
         required: true,
         type: String,
     },
-    // locationName: {
-    //     required: true,
-    //     type: String,
-    // },
+    countryName: {
+        required: true,
+        type: String,
+    },
+    locationName: {
+        required: true,
+        type: String,
+    },
     cityId: {
         required: true,
         type: String,

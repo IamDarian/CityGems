@@ -43,11 +43,18 @@ export default function CityPage({ params }){
     ), [])
 
     const handleFavorites = async () => {
-        fetch(`/api/favorites/${geoData.name}/${geoData.id}`, {
+        fetch(`/api/favorites/${geoData.name}/${geoData.id}/${geoData.country}/${geoData.admin1}`, {
             method: "POST",
         });
+        // router.push("/favorites");
+    }
 
-        router.push("/favorites");
+    const deleteFavorites = async () => {
+        fetch(`/api/favorites/${geoData.name}/${geoData.id}/${geoData.country}/${geoData.admin1}`, {
+            method: "DELETE"
+        })
+        // router.push("/favorites");
+        // !! Do an animation for favorite and unfavorite
     }
 
     const date = new Date().toLocaleTimeString('en-GB', {timeZone: geoData && geoData.timezone});
@@ -86,6 +93,7 @@ export default function CityPage({ params }){
             </div>}
             <div>
                 <button className="btn px-3 py-2 bg-cyan-500 rounded-lg my-5 mx-2" onClick={handleFavorites}>Favorite</button>
+                <button className="btn px-3 py-2 bg-red-500 rounded-lg my-5 mx-2" onClick={deleteFavorites}>Delete Favorite</button>
                 <a href="/"><button className="btn px-3 py-2 text-slate-50 bg-slate-800 rounded-lg my-5 mx-2">Explore Other</button></a>
             </div>
         </main>

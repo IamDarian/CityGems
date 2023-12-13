@@ -2,21 +2,23 @@ import { connectDatabase } from "@/utils/database";
 import { NextResponse } from "next/server";
 import CitySaved from "@/models/saved";
 
-export async function POST(req, { params }){
-    // console.log(req);
+async function POST(req, { params }){
+
     try{
         await connectDatabase();
 
         const geoData = params.geoData;
         console.log(geoData);
         const favoriteExists = await CitySaved.findOne({
-            cityId: geoData
+            cityId: geoData[1]
         });
 
         if(!favoriteExists){
             await CitySaved.create({
-                cityId: geoData[1],
                 cityName: geoData[0],
+                cityId: geoData[1],
+                countryName: geoData[2],
+                locationName: geoData[3],
             });
         }
     } catch(error) {
@@ -26,3 +28,25 @@ export async function POST(req, { params }){
         success: true,
     });
 }
+
+async function DELETE(req, { params }){
+    try{
+        await connectDatabase();
+
+        const geoData = params.geoData;
+        const favoriteExists = await CitySaved.findOne({
+            cityId: geoData[1]
+        });
+
+        if(favoriteExists){
+            await favoriteExists.deleteOne();
+        }
+    } catch(err) {
+        console.log(err);
+    }
+    return NextResponse.json({
+        success: true,
+    });
+}
+
+export { POST, DELETE }
