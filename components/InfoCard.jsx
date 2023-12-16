@@ -1,6 +1,4 @@
-import React from "react";
-
-export default function InfoCard(props, { children }) {
+export default function InfoCard(props) {
   return (
     <div className="test_bg flex gap-5 items-center justify-around shadow-lg rounded-lg text-slate-50 h-36 w-[330px] px-5 py-3">
       <div>

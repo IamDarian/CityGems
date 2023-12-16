@@ -1,4 +1,3 @@
-import React from "react";
 import Card from "@/components/Card";
 import Saved from "@/models/favorites";
 import { connectDatabase } from "@/utils/database";
