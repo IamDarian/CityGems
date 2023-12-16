@@ -1,6 +1,20 @@
 ## Getting Started
 
-First, run the development server:
+First, run the installation for dependencies:
+
+```bash
+npm install
+# or
+yarn install
+# or
+pnpm install
+# or
+bun install
+```
+
+After, make a .env file which will contain the MONGODB_URI.
+
+Then, run the development server:
 
 ```bash
 npm run dev
