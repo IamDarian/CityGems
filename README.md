@@ -36,4 +36,6 @@ This is a website aplication created in Next.js, with the use of React.js, Mongo
 ### Website Preview
 ![CityGems](https://github.com/IamDarian/CityGems/assets/149789369/58faab67-5129-4717-9b9c-b8bdce27e46e)
 
+## Vercell Preview:
+https://city-gems.vercel.app/
 
